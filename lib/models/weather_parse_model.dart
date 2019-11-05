@@ -1,5 +1,6 @@
 class WeatherParse {
-  WeatherParse(this.temperature, this.city, this.iconUrl);
+  const WeatherParse(this.temperature, this.city, this.iconUrl);
+  
   WeatherParse.fromJson(Map<String, dynamic> json)
       : temperature = json['main']['temp'],
         city = json['name'],

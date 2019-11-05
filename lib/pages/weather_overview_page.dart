@@ -31,9 +31,11 @@ class WeatherOverview extends StatelessWidget {
 }
 
 class WeatherProvider {
+  final String appId = '1ea55013049215603ece3fee22806975';
+
   Future<WeatherParse> getCurrentWeather() async {
     final response = await http.get(
-        'https://api.openweathermap.org/data/2.5/weather?q=Kharkiv&units=metric&APPID=1ea55013049215603ece3fee22806975');
+        'https://api.openweathermap.org/data/2.5/weather?q=Kharkiv&units=metric&APPID=${appId}');
 
     if (response.statusCode == 200) {
       return WeatherParse.fromJson(json.decode(response.body));
