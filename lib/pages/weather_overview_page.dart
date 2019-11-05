@@ -11,7 +11,7 @@ class WeatherOverview extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Weather Overview"),
+        title: const Text('Weather Overview'),
       ),
       body: Center(
         child: FutureBuilder<WeatherParse>(
@@ -20,9 +20,9 @@ class WeatherOverview extends StatelessWidget {
             if (snapshot.hasData) {
               return WeatherContainer(weather: snapshot.data);
             } else if (snapshot.hasError) {
-              return Text("${snapshot.error}");
+              return Text('${snapshot.error}');
             }
-            return CircularProgressIndicator();
+            return const CircularProgressIndicator();
           },
         ),
       ),

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:lesson_4/models/weather_parse_model.dart';
 
-
 class WeatherContainer extends StatelessWidget {
-  final WeatherParse weather;
-
-  WeatherContainer({Key key, @required this.weather})
+  const WeatherContainer({Key key, @required this.weather})
       : assert(weather != null),
         super(key: key);
+
+  final WeatherParse weather;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +14,7 @@ class WeatherContainer extends StatelessWidget {
       builder: (context, orientation) {
         if (orientation == Orientation.portrait) {
           return Column(
-            mainAxisAlignment:MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
                 '${weather.city} : ${weather.temperature} °C',
@@ -31,18 +30,14 @@ class WeatherContainer extends StatelessWidget {
             children: <Widget>[
               Container(
                 child: Column(
-                mainAxisAlignment:MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    '${weather.city}',
-                    style: Theme.of(context).textTheme.display1
-                  ),
-                  Text(
-                    '${weather.temperature} °C',
-                    style: Theme.of(context).textTheme.display1
-                  )
-                ],
-              ),
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text('${weather.city}',
+                        style: Theme.of(context).textTheme.display1),
+                    Text('${weather.temperature} °C',
+                        style: Theme.of(context).textTheme.display1)
+                  ],
+                ),
               ),
               Image.network(weather.iconUrl),
             ],
